@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slide Show</title>
+</head>
+<body>
+  <center>
+    <h2>Image Slideshow</h2>
+    <img id="slide" src="images/img1.jfif" width="300">
+    <br><button onclick="changeSlide()">Next</button>
+  </center>
+
+  <script>
+    const images = [
+      'images/img1.jfif',
+      'images/img2.jfif',
+      'images/img3.jfif',
+      'images/img4.jfif',
+      'images/img5.jfif'
+    ];
+    let index = 0;
+
+    function changeSlide() {
+      index = (index + 1) % images.length;
+      document.getElementById('slide').src = images[index];
+    }
+
+    // Automatically change slide every 3 seconds (3000 milliseconds)
+    setInterval(changeSlide, 3000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+body{
+    font-family: sans-serif;
+    background:#e6e2e2;
+    padding: 2rem;
+}
+
+.pricing-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2rem;
+}
+
+.pricing-tier{
+    background:white;
+    border-radius: 15px;
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+     padding: 2rem;
+     text-align: center;
+     transition: 0.3s ease-in-out;
+}
+
+h2{
+    font-size: 1.5rem;
+    margin-bottom:0.5 ;
+}
+  
+.price{
+    font-size: 2rem;
+    color:dodgerblue;
+    margin: 0.8rem 0;
+}
+
+ul{
+    list-style-type:none;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+li{
+    padding: 0.5rem 0;
+}
+
+button {
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+}

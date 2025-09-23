@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade calculator</title>
+  
+</head>
+<body>
+    <center>
+        <h2>Student Grade Calculator</h2>
+        <hr>
+        <form onsubmit="calculateGrade();return false;">
+            <label >Suject 1:</label> <input type="number" id="sub1" required>
+            <br>
+            <label >Subject 2:</label> <input type="number" id="sub2" required>
+            <br>
+            <label >Subject 3:</label> <input type="number" id="sub3" required>
+            <br>
+            <label >Subject 4:</label> <input type="number" id="sub4" required>
+            <br>
+            <label >Subject 5:</label> <input type="number" id="sub5" required>
+            <br>
+            <button type="submit">Calculate</button>
+        </form>
+        <p id="result">Result</p>
+    </center>
+    
+    <script>
+        function calculateGrade(){
+            const marks=[
+                parseInt(document.getElementById('sub1').value),
+                parseInt(document.getElementById('sub2').value),
+                parseInt(document.getElementById('sub3').value),
+                parseInt(document.getElementById('sub4').value),
+                parseInt(document.getElementById('sub5').value)          
+            ];
+            const total=marks.reduce((sum,mark)=> sum+mark,0);
+            const average= total/marks.length;
+            let grade='';
+
+            if(average>=90) grade ='A';
+            else if(average>=80) grade='B';
+            else if(average>=70) grade='C';
+            else if(average>=60) grade='D';
+            else grade='F'
+
+            document.getElementById('result').textContent = `Total: ${total}, Average: ${average.toFixed(2)}, Grade: ${grade}`;
+        }
+
+    </script>
+</body>
+</html>

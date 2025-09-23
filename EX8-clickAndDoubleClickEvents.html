@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab 8</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <p id="eventPara">Click or double-click me to see alerts!</p>
+
+  <script>
+    $("#eventPara").click(function() {
+      alert("Paragraph clicked!");
+    });
+
+    $("#eventPara").dblclick(function() {
+      alert("Paragraph double-clicked!");
+    });
+  </script>
+
+</body>
+</html>

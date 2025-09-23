@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic Table Generator</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h2>Dynamic Table Generator</h2>
+  <label>Rows: <input type="number" id="rows" min="1"></label>
+  <label>Columns: <input type="number" id="cols" min="1"></label>
+  <button onclick="generateTable()">Generate Table</button>
+
+  <div id="tableContainer"></div>
+
+  <script>
+    function generateTable() {
+      const rowCount = parseInt(document.getElementById('rows').value);
+      const colCount = parseInt(document.getElementById('cols').value);
+      const container = document.getElementById('tableContainer');
+      container.innerHTML = ''; // Clear previous table
+
+      const table = document.createElement('table');
+
+      for (let i = 0; i < rowCount; i++) {
+        const row = document.createElement('tr');
+        for (let j = 0; j < colCount; j++) {
+          const cell = document.createElement('td');
+          cell.textContent = `Row ${i + 1}, Col ${j + 1}`;
+          row.appendChild(cell);
+        }
+        table.appendChild(row);
+      }
+
+      container.appendChild(table);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Geolocation Tracker</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #status { margin-bottom: 10px; }
+    #location { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Geolocation Tracker</h2>
+  <div id="status">Checking location...</div>
+  <div id="location"></div>
+
+  <script>
+    const status = document.getElementById('status');
+    const locationDisplay = document.getElementById('location');
+
+    if ('geolocation' in navigator) {
+      navigator.geolocation.watchPosition(
+        (position) => {
+          const { latitude, longitude, accuracy } = position.coords;
+          status.textContent = 'Location found!';
+          locationDisplay.innerHTML = `
+            Latitude: ${latitude.toFixed(6)}<br>
+            Longitude: ${longitude.toFixed(6)}<br>
+            Accuracy: ±${accuracy} meters
+          `;
+        },
+        (error) => {
+          status.textContent = `Error: ${error.message}`;
+        },
+        {
+          enableHighAccuracy: true,
+          maximumAge: 0,
+          timeout: 5000
+        }
+      );
+    } else {
+      status.textContent = 'Geolocation is not supported by your browser.';
+    }
+  </script>
+</body>
+</html>
