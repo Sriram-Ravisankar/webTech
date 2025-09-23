@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toggle paragraph background</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    #togglePara {
+      padding: 10px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+
+  <p id="togglePara">Double-click to change the background!</p>
+
+  <script>
+    $("#togglePara").dblclick(function() {
+      $(this).toggleClass("highlight");
+    });
+  </script>
+
+</body>
+</html>
